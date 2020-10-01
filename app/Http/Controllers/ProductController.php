@@ -19,9 +19,10 @@ class ProductController extends Controller
     {
         $this->middleware('auth:api')->except('index', 'show');
     }
-    public function index()
+    public function index(Product $product)
     {
-        return ProductCollection::collection(Product::paginate(10));
+        // return ProductCollection::collection(Product::paginate(10));
+        return ProductCollection::collection(Product::all());
     }
 
     /**
